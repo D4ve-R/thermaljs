@@ -2,7 +2,7 @@
   "name": "thermaljs",
   "version": "0.0.1",
   "description": "Collection of BIM tools",
-  "main": "dist/bundle/thermal.js",
+  "main": "dist/lib/thermal.js",
   "module": "dist/lib-esm/",
   "types": "dist/lib/index.d.ts",
   "scripts": {
@@ -11,12 +11,13 @@
     "docs": "npx typedoc --out docs src"
   },
   "keywords": [
-    "BIM",
-    "Construction",
+    "bim",
+    "construction",
     "building-physics",
     "u-value",
     "r-value",
-    "heat transmittance"
+    "thermal transmittance",
+	"thermal transfer coefficient"
   ],
   "repository": {
     "type": "git",

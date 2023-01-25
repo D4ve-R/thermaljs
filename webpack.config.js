@@ -21,7 +21,7 @@ module.exports = {
   },
   output: {
     filename: 'thermal.js',
-    path: path.resolve(__dirname, 'dist/bundle'),
+    path: path.resolve(__dirname, 'dist/lib'),
 	globalObject: 'this',
     library: {
       name: 'themaljs',
