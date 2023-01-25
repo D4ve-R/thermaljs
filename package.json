@@ -1,0 +1,46 @@
+{
+  "name": "thermaljs",
+  "version": "0.0.1",
+  "description": "Collection of BIM tools",
+  "main": "dist/bundle/thermal.js",
+  "module": "dist/lib-esm/",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "npx eslint . && tsc -m es6 --outDir dist/lib-esm && ./node_modules/.bin/webpack --mode production",
+    "docs": "npx typedoc --out docs src"
+  },
+  "keywords": [
+    "BIM",
+    "Construction",
+    "building-physics",
+    "u-value",
+    "r-value",
+    "heat transmittance"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D4ve-R/thermaljs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/D4ve-R/thermaljs/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.5",
+    "ts-loader": "^9.4.2",
+    "typedoc": "^0.23.24",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "files": [
+    "dist"
+  ]
+}
