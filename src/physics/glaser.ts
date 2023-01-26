@@ -1,5 +1,6 @@
 import { MaterialLayer } from '../materials/Material';
 import { heatTransferR, getRsFromDirection } from './heatTransfer';
+import { vaporSaturationPressure } from './vaporSaturationPressure';
 
 /**
  * Glaser procedure
@@ -11,7 +12,7 @@ import { heatTransferR, getRsFromDirection } from './heatTransfer';
  * @param tempIntern internal temperature
  * @param tempExtern external temperature
  * @param direction heat flow direction, can be 'up', 'side' or 'down'
- * @returns 
+ * @returns condensate amount in kg/m² for winter and summer, index of layer where condensate will appear, data of calculation
  */
 export function glaser(layers: MaterialLayer[], tempIntern: number, tempExtern: number, direction: string){
 	const deltaTemp = Math.abs(tempIntern - tempExtern);
@@ -62,8 +63,8 @@ export function glaser(layers: MaterialLayer[], tempIntern: number, tempExtern: 
 	result.push({temp: temp, ps: vaporSaturationPressure(temp), sd: 0});
 
 	const sumSdA = sumSd - sumSdE;
-	const dewWinter = calcDew(deltaPE, sumSdE, deltaPA, sumSdA, 1440);
-	const dewSummer = calcDew(421, sumSdE, 421, sumSdA, 2160);
+	const dewWinter = calcCondensate(deltaPE, sumSdE, deltaPA, sumSdA, 1440);
+	const dewSummer = calcCondensate(421, sumSdE, 421, sumSdA, 2160);
 	
 	return {
 		condensate: { winter: dewWinter, summer: dewSummer},
@@ -73,44 +74,30 @@ export function glaser(layers: MaterialLayer[], tempIntern: number, tempExtern: 
 }
 
 /**
- * Vapor saturation pressure
- * 
- * Calculate vsp for a given temperature
- * @param temp temperature between -20 and +30 degree celsius
- * @param humidity relative humidity, number between 0.0 and 1.0
- * @returns vsp in pascal
- */
-export function vaporSaturationPressure(temp: number, humidity = 1.0){
-	if(temp >= 0 && temp < 30)
-		return 288.68 * Math.pow(1.0981 + temp / 100, 8.02) * humidity;
-
-	if(temp <= 0 && temp > -20)
-		return 4.689 * Math.pow(1.486 + temp / 100, 12.3) * humidity;
-
-	throw 'Vapor Saturation Pressure Calc: Temperature must be within -20 and +30 degrees Celsius';
-}
-
-/**
  * Calculate Sd value
  * 
- * vapor diffusion equivalent atmospheric layer height
+ * vapor diffusion equivalent atmospheric layer height 
+ * 
  * @param vdr vapor diffusion resistance
  * @param depth depth in meter
- * @returns 
+ * @returns Sd value in meter
  */
 export function Sd(vdr: number, depth: number){
 	return vdr * depth;
 }
 
 /**
+ * Calculate condensate
  * 
- * @param pE 
- * @param sdE 
- * @param pA 
- * @param sdA 
- * @param hours 
- * @returns 
+ * Calculate amount of condensate in kg/m²
+ * 
+ * @param pE vapor pressure of the external air
+ * @param sdE Sd value of the external air
+ * @param pA vapor pressure of the internal air
+ * @param sdA Sd value of the internal air
+ * @param hours hours
+ * @returns amount of condensate in kg/m²
  */
-export function calcDew(pE: number, sdE: number, pA: number, sdA: number, hours: number){
+export function calcCondensate(pE: number, sdE: number, pA: number, sdA: number, hours: number){
 	return hours * (pE/sdE + pA/sdA) / 1500000;
 }

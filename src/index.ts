@@ -5,15 +5,13 @@ import {
 } from './physics';
 
 import {
-	Material,
-	MaterialLayer
-} from './Materials/Material';
+	TheMaterial,
+} from './materials/Material';
 
 
 export {
 	glaser,
 	heatTransferR,
 	heatTransferRInHomo,
-	Material,
-	MaterialLayer,
+	TheMaterial,
 }

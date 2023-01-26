@@ -1,13 +1,18 @@
 import { MaterialLayer } from '../materials/Material';
 
-
-enum RsInternal {
+/**
+ * Heat transfer resistance internal
+ */
+const enum RsInternal {
 	Up = 0.1,
 	Side = 0.13,
 	Down = 0.17
 }
 
-enum RsExternal {
+/**
+ * Heat transfer resistance external
+ */
+const enum RsExternal {
 	Up = 0.04,
 	Side = 0.04,
 	Down = 0.04
@@ -42,11 +47,13 @@ function _heatTransferR(layer: MaterialLayer, update = true){
 }
 
 /**
- * Heat transfer resistance of inhomogen components
+ * Heat transfer resistance of inhomogeneous components
  * 
- * Calculates the heat transfer resistance of a component with inhomogeneous material layers
- * @param layers 
+ * Calculates the heat transfer resistance of a component with inhomogeneous material layers array
+ * 
+ * @param layers material layers of component, ordered from inside to outside
  * @param direction heat flow direction, can be 'up', 'side' or 'down'
+ * @returns htr of component
  */
 export function heatTransferRInHomo(layers: MaterialLayer[], direction: string, width: number, height: number){
 	// TODO make this function more efficient
@@ -144,13 +151,14 @@ export function heatTransferRInHomo(layers: MaterialLayer[], direction: string, 
 }
 
 /**
- * Heat transfer resistance of homogen components
+ * Heat transfer resistance of homogeneous components
  * 
- * Calculates the heat transfer resistance of a component with given homogeneous material layers
+ * Calculates the heat transfer resistance of a component with given homogeneous material layers array
+ * 
  * @param layers material layers of component, ordered from inside to outside
  * @param direction heat flow direction, can be 'up', 'side' or 'down'
  * @param update update htr of materials in layers, default is true
- * @returns 
+ * @returns htr of component
  */
 export function heatTransferR(layers: MaterialLayer[], direction: string, update = true) {
 	let r = 0.0;
@@ -171,6 +179,7 @@ export function heatTransferR(layers: MaterialLayer[], direction: string, update
 }
 
 /**
+ * Get internal and external resistance from heat flow direction
  * 
  * @param direction heat flow direction, can be 'up', 'side' or 'down'
  * @returns object with rsi and rse, rsi is the internal resistance, rse is the external resistance

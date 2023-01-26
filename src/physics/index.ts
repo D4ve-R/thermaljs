@@ -1,8 +1,7 @@
 import { 
 	glaser,
-	vaporSaturationPressure,
 	Sd,
-	calcDew,
+	calcCondensate,
 } from './glaser';
 
 import {
@@ -11,13 +10,17 @@ import {
 	getRsFromDirection,
 } from './heatTransfer';
 
+import {
+	vaporSaturationPressure,
+} from './vaporSaturationPressure';
+
 
 export {
 	glaser,
-	vaporSaturationPressure,
 	Sd,
-	calcDew,
+	calcCondensate,
 	heatTransferR,
 	heatTransferRInHomo,
 	getRsFromDirection,
+	vaporSaturationPressure,
 }
