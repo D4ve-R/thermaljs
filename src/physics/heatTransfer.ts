@@ -67,7 +67,7 @@ export function heatTransferRInHomo(layers: MaterialLayer[], direction: string, 
 	for(let i = 0; i < height; ++i){
 		for(let j = 0; j < width; ++j){
 			const idx = i * width + j;
-
+			
 			for(let l = 0; l < layers.length; ++l){
 				const layer = layers[l];
 				let subLayerHtrFound = false;
@@ -106,15 +106,15 @@ export function heatTransferRInHomo(layers: MaterialLayer[], direction: string, 
 		}
 	}
 	
-	let rTop = 0.0;
+	let rMax = 0.0;
 	for(const key in valueCount) {
 		const fraction = valueCount[key].count / (width * height);
-		rTop += fraction / Number(key);
+		rMax += fraction / Number(key);
 	}
 
-	rTop = 1 / rTop;
+	rMax = 1 / rMax;
 
-	let rBottom = 0.0;
+	let rMin = 0.0;
 	for(let i = 0; i < layers.length; ++i){
 		const layer = layers[i];
 		let rLayer = 0.0;
@@ -145,12 +145,11 @@ export function heatTransferRInHomo(layers: MaterialLayer[], direction: string, 
 
 		}
 
-		//console.log(rLayer);
-		rBottom += 1 / rLayer;
+		rMin += 1 / rLayer;
 	}
-	rBottom += rs.rsi + rs.rse;
+	rMin += rs.rsi + rs.rse;
 	
-	return (rTop + rBottom) / 2;
+	return (rMax + rMin) / 2;
 }
 
 /**
