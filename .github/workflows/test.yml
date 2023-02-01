@@ -1,5 +1,9 @@
 name: CI Tests & EsLint
-on: push
+on: 
+  push:
+    paths:
+      - 'src'
+      - 'tests'
 jobs:
   build:
     runs-on: ubuntu-latest
