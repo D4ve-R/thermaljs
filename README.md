@@ -3,8 +3,10 @@
 # ThermalJS
 
 Thermal is a simple physics library, performing heat transmittance & condensate calculations.  
+The goal of this project is to provide a library of physics calculations, which can be used in js-based applications for BIM and others.
+
      
-The library is still under development.  
+⚠️This project is wip.  
 
 ## Table of Contents
 
@@ -36,13 +38,13 @@ This software is **NOT** certified in any way.
 ### Installing
 
 ```
-npm install thermaljs
+npm install @d4ve-r/thermaljs
 ```
 
 ### Usage
 import the functions you need from the library
 ```
-import { glaser, heatTransferR } from 'thermaljs';
+import { glaser, heatTransferR } from '@d4ve-r/thermaljs';
 ```
 create a MaterialLayer array of your component
 ```
