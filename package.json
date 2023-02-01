@@ -17,7 +17,7 @@
     "u-value",
     "r-value",
     "thermal transmittance",
-	"thermal transfer coefficient"
+    "thermal transfer coefficient"
   ],
   "repository": {
     "type": "git",

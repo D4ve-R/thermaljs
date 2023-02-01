@@ -3,6 +3,12 @@ import { heatTransferR, getRsFromDirection } from './heatTransfer';
 import { vaporSaturationPressure } from './vaporSaturationPressure';
 
 /**
+ * TODO:  
+ * inhomoegenous layers
+ * DIN EN ISO 13788
+ */
+
+/**
  * Glaser procedure
  * 
  * Determine if condensate will appear in the component.

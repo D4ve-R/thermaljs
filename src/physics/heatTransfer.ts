@@ -1,5 +1,7 @@
 import { MaterialLayer } from '../materials/Material';
 
+// TODO: DIN 4108-4 || DIN EN ISO 13788 ? for Rsi and Rse
+
 /**
  * Heat transfer resistance internal
  */
@@ -51,6 +53,7 @@ function _heatTransferR(layer: MaterialLayer, update = true){
  * 
  * Calculates the heat transfer resistance of a component with inhomogeneous material layers array
  * 
+ * DIN 4108-2 compliant
  * @param layers material layers of component, ordered from inside to outside
  * @param direction heat flow direction, can be 'up', 'side' or 'down'
  * @returns htr of component
@@ -155,6 +158,7 @@ export function heatTransferRInHomo(layers: MaterialLayer[], direction: string, 
  * 
  * Calculates the heat transfer resistance of a component with given homogeneous material layers array
  * 
+ * DIN 4108-2 compliant
  * @param layers material layers of component, ordered from inside to outside
  * @param direction heat flow direction, can be 'up', 'side' or 'down'
  * @param update update htr of materials in layers, default is true

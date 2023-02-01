@@ -26,6 +26,7 @@ Features:
 
 The calculations are based on the following standards:
 - [DIN EN ISO 6946](https://de.wikipedia.org/wiki/EN_ISO_6946)
+- [DIN 4108](https://de.wikipedia.org/wiki/DIN_4108)
 
 This software is **NOT** certified in any way.
 
