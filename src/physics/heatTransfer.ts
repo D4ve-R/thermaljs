@@ -51,7 +51,7 @@ function _heatTransferR(layer: MaterialLayer, update = true){
 /**
  * Heat transfer resistance of inhomogeneous components
  * 
- * Calculates the heat transfer resistance of a component with inhomogeneous material layers array
+ * Calculates the heat transfer resistance of a component with inhomogeneous material layers array.
  * 
  * DIN 4108-2 compliant
  * @param layers material layers of component, ordered from inside to outside
