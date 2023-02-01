@@ -2,8 +2,8 @@ name: CI Tests & EsLint
 on: 
   push:
     paths:
-      - 'src'
-      - 'tests'
+      - 'src/**'
+      - 'tests/**'
   pull_request:
     branches:
       - '*'

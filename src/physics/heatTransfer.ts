@@ -3,7 +3,7 @@ import { MaterialLayer } from '../materials/Material';
 // TODO: DIN 4108-4 || DIN EN ISO 13788 ? for Rsi and Rse
 
 /**
- * Heat transfer resistance internal
+ * Heat transfer resistance internal.
  */
 const enum RsInternal {
 	Up = 0.1,
@@ -12,7 +12,7 @@ const enum RsInternal {
 }
 
 /**
- * Heat transfer resistance external
+ * Heat transfer resistance external.
  */
 const enum RsExternal {
 	Up = 0.04,

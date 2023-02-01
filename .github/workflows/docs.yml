@@ -2,7 +2,7 @@ name: CI Docs
 on: 
   push:
     paths: 
-      - 'src'
+      - 'src/**'
 jobs:
   build:
     runs-on: ubuntu-latest
