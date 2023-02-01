@@ -1,5 +1,5 @@
 {
-  "name": "thermaljs",
+  "name": "@d4ve-r/thermaljs",
   "version": "0.0.1",
   "description": "Collection of BIM tools",
   "main": "dist/lib/thermal.js",
@@ -23,10 +23,13 @@
     "type": "git",
     "url": "git+https://github.com/D4ve-R/thermaljs.git"
   },
-  "author": "",
+  "author": "D4ve-R",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/D4ve-R/thermaljs/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@types/jest": "^29.2.6",
