@@ -6,7 +6,7 @@ Thermal is a simple physics library, performing heat transmittance & condensate 
 The goal of this project is to provide a library of physics calculations, which can be used in js-based applications for BIM and others.
 
      
-⚠️This project is wip.  
+⚠️This project is wip  
 
 ## Table of Contents
 
