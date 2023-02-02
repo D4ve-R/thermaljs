@@ -8,22 +8,17 @@ jobs:
     if: github.event.pull_request.merged && endsWith(github.run_attempt, '1')
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - name: Bump npm version in package.json
-        run: npm version patch --no-git-tag-version
-
-      - name: Tag and prepare release
-        id: tag_and_prepare_release
-        uses: K-Phoen/semver-release-action@v1.3.1
+      - name: 'Automated Version Bump'
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
         with:
-          release_branch: main
-          release_strategy: tag
+          tag-prefix: 'v'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload release notes
-        if: steps.tag_and_prepare_release.outputs.tag
+        if: steps.version-bump.outputs.newTag
         uses: Roang-zero1/github-create-release-action@v3
         with:
-          created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
+          created_tag: ${{ steps.version-bump.outputs.newTag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
