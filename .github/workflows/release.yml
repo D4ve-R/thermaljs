@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: Bump npm version in package.json
-        run: npm version patch
+        run: npm version patch --no-git-tag-version patch
 
       - name: Tag and prepare release
         id: tag_and_prepare_release
