@@ -3,13 +3,13 @@ on:
     types: closed
 
 jobs:
-  build:
+  create-tag-release:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged && endsWith(github.run_number, '1')
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: Bump npm version in package.json
-        uses: actions/setup-node@v3
         run: npm version patch
 
       - name: Tag and prepare release
