@@ -3,9 +3,9 @@ on:
     types: closed
 
 jobs:
-  permissions:
-    contents: write
   create-tag-release:
+    permissions:
+       contents: write
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged && endsWith(github.run_attempt, '1')
     steps:
